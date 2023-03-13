@@ -3,9 +3,10 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+#include<sys/socket.h>
  
 int main(){
- 
+ exit
   char *ip = "127.0.0.1";
   int port = 5566;
  
