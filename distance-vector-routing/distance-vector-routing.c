@@ -1,8 +1,11 @@
 #include<stdio.h>
+
+
 struct node{
     int dist[20];
     int from[20];
 }rt[10];
+
 
 int main(){
     int costmatrix[20][20];
@@ -15,7 +18,7 @@ int main(){
     for(i=0;i<nodes;i++){
         for(j=0;j<nodes;j++){
             scanf("%d",&costmatrix[i][j]);
-            costmatrix[i][i]=0;
+            costmatrix[i][i]=0;    //distance to the same router is 0
             rt[i].dist[j]=costmatrix[i][j];  //initialize the distance equal to cost matrix
             rt[i].from[j]=j; // initialize the source node
         }
@@ -26,7 +29,7 @@ int main(){
         for(i=0;i<nodes;i++){
             for(j=0;j<nodes;j++){
                 for(k=0;k<nodes;k++){
-                    if(rt[i].dist[j]>costmatrix[i][k]+rt[k].dist[j]){
+                    if(rt[i].dist[j]>costmatrix[i][k]+rt[k].dist[j]){   //Bellman-Ford Equation ,D(x) = min{ C(x,y) + D(y)}
 
                         rt[i].dist[j]=rt[i].dist[k+rt[k].dist[j]];
                         rt[i].from[j]=k;
