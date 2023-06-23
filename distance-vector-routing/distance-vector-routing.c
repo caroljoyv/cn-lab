@@ -31,7 +31,7 @@ int main(){
                 for(k=0;k<nodes;k++){
                     if(rt[i].dist[j]>costmatrix[i][k]+rt[k].dist[j]){   //Bellman-Ford Equation ,D(x) = min{ C(x,y) + D(y)}
 
-                        rt[i].dist[j]=rt[i].dist[k+rt[k].dist[j]];
+                        rt[i].dist[j]=rt[i].dist[k]+rt[k].dist[j];
                         rt[i].from[j]=k;
                         count++;
                     }
